@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base=public --watch-poll --inline --hot --progress",
-    "start": "node server.js",
-    "build": "webpack"
+    "postinstall": "node ./node_modules/webpack/bin/webpack.js",
+    "start": "node server.js"
   },
   "author": "naffiq",
   "license": "MIT",
