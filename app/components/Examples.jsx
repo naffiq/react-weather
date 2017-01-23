@@ -3,7 +3,7 @@ import React from 'react';
 var Examples = (props) => {
   return(
     <div>
-      <h3>Examples</h3>
+      <h1 className="text-center">Examples</h1>
       <p>Welcome to examples page!</p>
     </div>
   );
