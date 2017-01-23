@@ -2,16 +2,10 @@ import React from 'react';
 
 var WeatherMessage = React.createClass({
   render() {
-    var {city, temperature, isVisible} = this.props;
-
-    if (isVisible) {
-      return (
-        <div>It's {temperature} degrees in {city}</div>
-      );
-    }
+    var {city, temperature} = this.props;
 
     return (
-      <div></div>
+      <div>It's {temperature} degrees in {city}</div>
     );
   }
 });

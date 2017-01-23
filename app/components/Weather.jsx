@@ -8,34 +8,48 @@ var Weather = React.createClass({
 
   getInitialState() {
     return {
-      city: '',
-      temperature: 0,
-      messageVisible: false
+      city: false,
+      temperature: false,
+      isLoading: false
     }
   },
 
   handleSearch(city) {
     var that = this;
+    this.setState({isLoading: true});
 
     openWeatherMap.getTemp(city).then(function (temp) {
       that.setState({
         city: city,
         temperature: temp,
-        messageVisible: true
+        isLoading: false
       });
     }, function (errorMessage) {
       alert(errorMessage);
+      that.setState({
+        city: false,
+        temperature: false,
+        isLoading: false
+      });
     });
   },
 
   render() {
-    var {city, temperature, messageVisible} = this.state;
+    var {isLoading, city, temperature, messageVisible} = this.state;
+
+    function renderMessage () {
+      if (isLoading) {
+        return <h3>Fetching weather...</h3>;
+      } else if (temperature !== false && city !== false) {
+        return <WeatherMessage temperature={temperature} city={city}/>;
+      }
+    }
 
     return (
       <div>
         <h3>Weather Component</h3>
         <WeatherForm onSearch={this.handleSearch} />
-        <WeatherMessage city={city} temperature={temperature} isVisible={messageVisible}/>
+        {renderMessage()}
       </div>
     );
   }
