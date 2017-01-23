@@ -13,10 +13,11 @@ var WeatherForm = React.createClass({
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <div className="form-group">
-          <input className="form-control" ref="city" />
-        </div>
-        <button className="btn btn-default btn-block">Get Weather</button>
+        <label>
+          Enter city name
+          <input type="password" id="password" placeholder="e.g. Almaty" required ref="city" />
+        </label>
+        <button className="button">Get Weather</button>
       </form>
     );
   },

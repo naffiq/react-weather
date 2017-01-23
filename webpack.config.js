@@ -1,5 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/js/foundation.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery',
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'
@@ -9,11 +24,13 @@ module.exports = {
     alias: {
       Main: 'app/components/Main',
       Nav: 'app/components/Nav',
+      NavLinkMenu: 'app/components/nav/NavLinkMenu',
+      NavSearchForm: 'app/components/nav/NavSearchForm',
       Weather: 'app/components/Weather',
-      About: 'app/components/About',
-      Examples: 'app/components/Examples',
       WeatherForm: 'app/components/weather/WeatherForm',
       WeatherMessage: 'app/components/weather/WeatherMessage',
+      About: 'app/components/About',
+      Examples: 'app/components/Examples',
       openWeatherMap: 'app/api/openWeatherMap'
     },
     extensions: ['', '.js', '.jsx']
