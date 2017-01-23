@@ -7,24 +7,28 @@ var Weather = React.createClass({
 
   getInitialState() {
     return {
-      message: '',
+      city: '',
+      temperature: 0,
+      messageVisible: false
     }
   },
 
-  updateMessage(message) {
+  handleSearch(city) {
     this.setState({
-      message: message
+      city: city,
+      temperature: 10,
+      messageVisible: true
     });
   },
 
   render() {
-    var message = this.state.message;
+    var {city, temperature, messageVisible} = this.state;
 
     return (
       <div>
         <h3>Weather Component</h3>
-        <WeatherForm updateMessage={this.updateMessage} />
-        <WeatherMessage message={message}/>
+        <WeatherForm onSearch={this.handleSearch} />
+        <WeatherMessage city={city} temperature={temperature} isVisible={messageVisible}/>
       </div>
     );
   }

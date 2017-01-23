@@ -6,7 +6,7 @@ var WeatherForm = React.createClass({
 
     var city = this.refs.city.value;
     if (city.length > 0) {
-      this.props.updateMessage(city);
+      this.props.onSearch(city);
       this.refs.city.value = '';
     }
   },
