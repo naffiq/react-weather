@@ -1,10 +1,6 @@
-# React Boilerplate App
+# React Weather App
 
-## What's included:
-
-- react dependencies
-- webpack and configuration
-- webpack-dev-server
+Basic weather app made using openweathermap.org API
 
 ## Running
 
