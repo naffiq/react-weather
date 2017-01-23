@@ -2,6 +2,7 @@ import React from 'react';
 
 import WeatherForm from 'WeatherForm';
 import WeatherMessage from 'WeatherMessage';
+import openWeatherMap from 'openWeatherMap';
 
 var Weather = React.createClass({
 
@@ -14,10 +15,16 @@ var Weather = React.createClass({
   },
 
   handleSearch(city) {
-    this.setState({
-      city: city,
-      temperature: 10,
-      messageVisible: true
+    var that = this;
+
+    openWeatherMap.getTemp(city).then(function (temp) {
+      that.setState({
+        city: city,
+        temperature: temp,
+        messageVisible: true
+      });
+    }, function (errorMessage) {
+      alert(errorMessage);
     });
   },
 
