@@ -4,7 +4,9 @@
   "description": "React Weather App",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base=public --watch-poll --inline --hot --progress"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base=public --watch-poll --inline --hot --progress",
+    "start": "node server.js",
+    "build": "webpack"
   },
   "author": "naffiq",
   "license": "MIT",
