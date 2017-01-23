@@ -1,13 +1,9 @@
 import React from 'react';
 
-var WeatherMessage = React.createClass({
-  render() {
-    var {city, temperature} = this.props;
-
-    return (
-      <div>It's {temperature} degrees in {city}</div>
-    );
-  }
-});
+var WeatherMessage = ({city, temperature}) => {
+  return (
+    <div>It's {temperature} degrees in {city}</div>
+  );
+}
 
 module.exports = WeatherMessage;
