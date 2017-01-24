@@ -3,7 +3,7 @@ import React from 'react';
 var About = (props) => {
   return (
     <div>
-      <h1 className="text-center">About</h1>
+      <h1 className="text-center page-title">About</h1>
       <p>
         This project uses openWeatherMap.org API to fetch weather data
         and provides a form to search a weather in your city with ReactJS.
