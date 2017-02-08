@@ -2,12 +2,15 @@ import React from 'react';
 
 var NavSearchForm = React.createClass({
   onFormSubmit (e) {
+    debugger;
     e.preventDefault;
 
-    var city = this.refs.city.value;
+    var city = this.refs.search.value;
     if (city.length > 0) {
-      this.refs.city.value = '';
-      // TODO: search for city
+      this.refs.search.value = '';
+      var encodedLocation = encodeURIComponent(city);
+
+      window.location.hash = `#/?location=${city}`;
     }
   },
   render () {
@@ -15,8 +18,8 @@ var NavSearchForm = React.createClass({
       <div className="top-bar-right">
         <form onSubmit={this.onFormSubmit}>
           <ul className="menu">
-            <li><input type="search" placeholder="Enter city name" ref="city"/></li>
-            <li><button type="button" className="button">Get Weather</button></li>
+            <li><input type="search" placeholder="Enter city name" ref="search"/></li>
+            <li><button type="submit" className="button">Get Weather</button></li>
           </ul>
         </form>
       </div>
